@@ -1,0 +1,30 @@
+--- ANALISA SOAL 1 ---
+
+1. Perbedaan persebaran nilai keabuan antara ketiga citra:
+
+- Citra Asli: Histogram menampilkan persebaran awal nilai intensitas 
+  piksel bawaan gambar.
+
+- Citra Negatif: Histogram citra negatif merupakan cerminan terbalik 
+  dari histogram citra asli. Nilai intensitas yang awalnya berada di 
+  area gelap (mendekati 0) berpindah ke area terang (mendekati 255), 
+  dan sebaliknya.
+
+- Citra Logaritmik: Histogram bergeser ke arah nilai yang lebih 
+  terang (kanan). Transformasi ini meregangkan jangkauan nilai 
+  piksel yang rendah (gelap) agar lebih terlihat detailnya, dan 
+  memampatkan jangkauan nilai piksel yang tinggi (terang). 
+
+2. Kapan transformasi logaritmik lebih bermanfaat dibanding negatif?
+
+Transformasi logaritmik lebih bermanfaat daripada negatif ketika 
+kita ingin memunculkan atau memperjelas detail citra yang 
+tersembunyi pada area yang sangat gelap (underexposed) tanpa 
+mengubah area terang menjadi "overexposed" atau merusak informasi 
+aslinya. 
+
+Transformasi ini sering digunakan pada citra medis atau 
+astrofotografi di mana rentang dinamis piksel sangat lebar. 
+Sebaliknya, negatif hanya membalik warna, yang biasanya digunakan 
+jika kita memang ingin melihat detail terang berlatar gelap pekat 
+(seperti rontgen tulang).

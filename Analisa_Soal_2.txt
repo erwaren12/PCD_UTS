@@ -1,0 +1,45 @@
+--- ANALISA SOAL 2 ---
+
+1. Perbandingan hasil visual dan nilai piksel rata-rata:
+
+- Visual: 
+  * LPF menghasilkan gambar yang lebih blur/kabur karena filter ini 
+    melakukan perataan (averaging) untuk mereduksi noise.
+  * HPF menghasilkan gambar yang didominasi warna gelap pekat, 
+    namun menonjolkan garis tepi (edge) atau detail tajam yang ada 
+    pada citra asli.
+  * BPF (Sharpening) menghasilkan gambar yang lebih tajam dari 
+    aslinya, karena ia mempertahankan citra latar belakang dan 
+    sekaligus menambahkan efek deteksi tepi dari HPF.
+
+- Nilai Rata-rata Piksel: 
+  * LPF memiliki nilai rata-rata piksel yang hampir sama persis 
+    dengan citra asli karena total bobot kernelnya adalah 1. 
+  * HPF memiliki rata-rata piksel yang turun drastis (mendekati 
+    0/gelap) karena jumlah seluruh bobot kernelnya adalah 0, 
+    sehingga area yang seragam nilainya menjadi nol.
+  * BPF memiliki rata-rata piksel yang hampir sama dengan citra 
+    asli namun sedikit bervariasi (total bobot kernel = 1), tetap 
+    terang namun garis-garis tepinya lebih kontras.
+
+2. Hubungan antara domain spasial dan domain frekuensi dari 
+   ketiga jenis filter:
+
+- LPF (Low Pass Filter): Pada domain spasial, operasi averaging 
+  tetangga meredam transisi nilai piksel yang cepat. Pada domain 
+  frekuensi, ini setara dengan memblokir komponen frekuensi tinggi 
+  (detail/noise) dan hanya meloloskan komponen frekuensi rendah 
+  (area dengan intensitas seragam).
+
+- HPF (High Pass Filter): Pada domain spasial, kernel HPF mencari 
+  selisih drastis antar piksel. Pada domain frekuensi, filter ini 
+  menahan komponen frekuensi rendah dan meloloskan frekuensi 
+  tinggi, sehingga tepi dan detail objek sangat ditekankan.
+
+- BPF (Band Pass/Sharpening Filter): Pada domain spasial, filter 
+  ini menonjolkan bagian tengah sekaligus melakukan operasi deteksi 
+  tepi minimal. Pada domain frekuensi, filter ini meloloskan 
+  sekaligus memperkuat rentang pita frekuensi menengah ke tinggi, 
+  namun tetap tidak memblokir sepenuhnya frekuensi rendah, yang 
+  menyebabkan ketajaman gambar meningkat tanpa menghilangkan 
+  informasi dasar gambar.
